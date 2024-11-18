@@ -1,0 +1,158 @@
+/* CSS Styling */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f6f9;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.sidebar .logo img {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.menu-item img {
+    width: 24px; 
+    height: 24px;
+    margin-right: 10px; 
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu ul li {
+    margin-bottom: 15px;
+}
+
+.menu-item.active a {
+    font-weight: bold;
+    color: #ffcc00;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #b0c4de;
+    font-size: 18px;
+    transition: color 0.2s;
+}
+
+.menu ul .submenu {
+    display: none;
+    list-style-type: none;
+    padding-left: 30px;
+}
+
+.submenu{
+    font-size: 10px;
+}
+
+.logout {
+    margin-top: 50px;
+}
+
+.logout a {
+    text-decoration: none;
+    color: #ff6b6b;
+    font-size: 16px;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #fff;
+    padding: 10px 0;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    margin-left: -20px;
+    margin-right: -20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info img {
+    border-radius: 50%;
+    width: 40px;
+    margin-left: 10px;
+}
+
+.formula-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+h2 {
+    color: #2d3e50;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: 600;
+    color: #333;
+}
+
+#job_role, .weight-input {
+    width: calc(100% - 22px);
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#criteria-weights label {
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.primary-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+}
+
+.primary-button:hover {
+    background-color: #0056b3;
+}

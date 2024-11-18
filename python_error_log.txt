@@ -1,0 +1,1 @@
+Python não encontrado; executar sem argumentos para instalar a partir da Microsoft Store ou desativar este atalho em Definições > Gerir Aliases de Execução da Aplicação.

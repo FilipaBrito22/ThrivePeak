@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f6f9;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.menu-toggle {
+    position: absolute;
+    top: 20px;
+    left: 240px;
+    background-color: #333;
+    color: white;
+    border: none;
+    font-size: 14px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-hidden {
+    transform: translateX(-250px);
+}
+
+.sidebar .logo img {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.menu-item img {
+    width: 24px; 
+    height: 24px;
+    margin-right: 10px; 
+}
+
+.menu ul {
+    list-style-type: none;
+}
+
+.menu ul li {
+    margin-bottom: 15px;
+}
+
+.menu-item.active a {
+    font-weight: bold;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+}
+
+.submenu {
+    display: block;
+    list-style-type: none;
+    padding-left: 30px;
+    font-size: 10px;
+    display: block;
+}
+
+.submenu a.active {
+    font-weight: bold; 
+    color: #000; 
+}
+
+.submenu a.active {
+    background-color: #f0f0f0;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.logout {
+    margin-top: 50px;
+}
+
+.logout img{
+    width: 24px; 
+    height: 24px;
+    margin-right: 10px; 
+}
+
+.logout a {
+    text-decoration: none;
+    color: red;
+    font-size: 16px;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #fff;
+    padding: 10px 0;
+    margin-top: -20px;
+    margin-bottom: -20px;
+    margin-left: -20px;
+    margin-right: -20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info img {
+    border-radius: 50%;
+    width: 40px;
+    margin-left: 10px;
+}
+
+/* Profile Card */
+.profile-card {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.profile-card .profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.profile-card .profile-details h3 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.profile-card .profile-details p {
+    font-size: 16px;
+    color: #666;
+    margin: 2px 0;
+}
+
+/* Overview Cards */
+.overview-cards {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.overview-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    text-align: center;
+}
+
+.overview-card h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.overview-card p {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.overview-card small {
+    font-size: 12px;
+    color: #666;
+}
+
+/* Evolution Graph */
+.graph {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Feedback and Quadrants Section */
+.feedback-quadrants {
+    display: flex;
+    gap: 20px;
+}
+
+.feedback-section {
+    flex: 1;
+}
+
+.feedback-box,
+.recommendation-box {
+    background-color: #f4f6f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    height: 100px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.quadrants {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    flex: 1;
+}
+
+.quadrant {
+    height: 100px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+}
+
+.high-priority { background-color: #f28b82; }
+.performs-well { background-color: #81c995; }
+.low-priority { background-color: #fbbc04; }
+.satisfactory { background-color: #aecbfa; }
+
+.score-green {
+    color: green;
+    font-weight: bold;
+}
+
+.score-red {
+    color: red;
+    font-weight: bold;
+}

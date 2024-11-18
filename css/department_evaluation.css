@@ -1,0 +1,209 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f6f9;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.menu-toggle {
+    position: absolute;
+    top: 20px;
+    left: 240px;
+    background-color: #333;
+    color: white;
+    border: none;
+    font-size: 14px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-hidden {
+    transform: translateX(-250px);
+}
+
+.sidebar .logo img {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.menu-item img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.menu ul {
+    list-style-type: none;
+}
+
+.menu ul li {
+    margin-bottom: 15px;
+}
+
+.menu-item.active a {
+    font-weight: bold;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+}
+
+.submenu {
+    display: block;
+    list-style-type: none;
+    padding-left: 30px;
+    font-size: 10px;
+}
+
+.submenu a.active {
+    font-weight: bold; 
+    color: #000; 
+}
+
+.submenu a.active {
+    background-color: #f0f0f0;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.logout {
+    margin-top: 50px;
+}
+
+.logout a {
+    text-decoration: none;
+    color: red;
+    font-size: 16px;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #fff;
+    padding: 10px 0;
+    margin-top: -20px;
+    margin-bottom: -20px;
+    margin-left: -20px;
+    margin-right: -20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info img {
+    border-radius: 50%;
+    width: 40px;
+    margin-left: 10px;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.dashboard-bottom{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.dashboard-stat {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    width: 30%;
+}
+
+.dashboard-stat h2 {
+    font-size: 2em;
+    margin-top: 10px;
+}
+
+.dashboard-stat p {
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.up {
+    color: green;
+}
+
+.down {
+    color: red;
+}
+
+.company-details {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.chart {
+    width: 100%;
+    height: 300px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #9d8a8a; 
+    margin: 40px 0; 
+}
+
+/* Styles for the filters */
+.filters {
+    display: flex;
+    justify-content: flex-end; /* Move the filters to the right */
+    align-items: center; /* Vertically center the filters */
+    margin-top:40px; /* Add some space below the user info */
+}
+
+.filter {
+    margin-right: 20px; /* Add spacing between the two dropdowns */
+}
+
+.filter label {
+    margin-right: 8px; /* Space between the label and the select */
+    font-weight: bold; /* Make the label text bold */
+}
+
+select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    font-size: 14px;
+}
