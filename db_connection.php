@@ -1,14 +1,19 @@
 <?php
-$serverName = "companythrivepeak.database.windows.net"; // Your Azure SQL server name
-$database = "company"; // The name of your database
-$username = "FilipaBrito"; // The username you set for your Azure SQL database
-$password = "Filipa1602#"; // The password you set for your Azure SQL database
+// Configurações de conexão com o banco de dados
+$servername = "companythrivepeak.database.windows.net";
+$username = "FilipaBrito";
+$password = "Filipa1602#";
+$dbname = "company";
 
 try {
-    $conn = new PDO("sqlsrv:server=$serverName;Database=$database", $username, $password);
+    // Conexão PDO
+    $conn = new PDO("sqlsrv:server=$servername;database=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // Sem saída ou mensagens aqui
 } catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
+    // Use die() ou echo somente se necessário (para debug)
+    die("Connection failed: " . $e->getMessage());
 }
 ?>
+
 
