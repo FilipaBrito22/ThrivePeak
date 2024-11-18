@@ -1,6 +1,6 @@
 <?php
-$servername = "thrivepeakcompany.database.windows.net"; // Your Azure SQL server name
-$username = "CloudSAc843b116"; // The username you set for your Azure SQL database
+$servername = "companythrivepeak.database.windows.net"; // Your Azure SQL server name
+$username = "FilipaBrito"; // The username you set for your Azure SQL database
 $password = "Filipa1602#"; // The password you set for your Azure SQL database
 $dbname = "company"; // The name of your database
 
