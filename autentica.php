@@ -1,13 +1,15 @@
 <?php
 include 'db_connection.php';
 
+// Start session to keep track of user login
+session_start();
+
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Start session to keep track of user login
-session_start();
+«
 
 if (isset($_GET['logout'])) {
     session_unset(); // Unset all session variables
