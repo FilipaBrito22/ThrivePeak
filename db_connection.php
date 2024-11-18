@@ -5,15 +5,12 @@ $username = "FilipaBrito";
 $password = "Filipa1602#";
 $dbname = "company";
 
-try {
-    // Conexão PDO
-    $conn = new PDO("sqlsrv:server=$servername;database=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    // Sem saída ou mensagens aqui
-} catch (PDOException $e) {
-    // Use die() ou echo somente se necessário (para debug)
-    die("Connection failed: " . $e->getMessage());
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
+?>
 ?>
 
 
