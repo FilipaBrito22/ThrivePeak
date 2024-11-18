@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Redirect back to login page with error message
     $_SESSION['error_msg'] = $error_msg;
-    header("Location: login.php");
+    header("Location: index.php");
     exit();
 }
 
