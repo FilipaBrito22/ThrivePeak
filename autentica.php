@@ -1,26 +1,20 @@
-<?php
-include 'db_connection.php';
-
-// Start session
-session_start();
-
-// Check if logout is requested
-if (isset($_GET['logout'])) {
-    session_unset();
-    session_destroy();
-    header("Location: index.php");
-    exit();
-}
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
     $email = isset($_POST['email']) ? $conn->real_escape_string($_POST['email']) : '';
     $password = isset($_POST['password']) ? $_POST['password'] : '';
-    
+
+    // Debug: Exibir os valores capturados do formulário
+    var_dump($_POST); // Exibe os dados enviados pelo formulário
+    exit(); // Interrompe a execução aqui para análise
+
     if (!empty($email) && !empty($password)) {
         // Query database for the user
         $sql = "SELECT * FROM employee WHERE email = '$email'";
         $result = $conn->query($sql);
+
+        // Debug: Exibir resultado da consulta
+        var_dump($result->num_rows); // Exibe o número de linhas retornadas
+        exit(); // Interrompe a execução aqui para análise
 
         if ($result && $result->num_rows > 0) {
             $user = $result->fetch_assoc();
@@ -45,7 +39,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: index.php");
     exit();
 }
-
-// Close connection
-$conn->close();
-?>
