@@ -1,13 +1,16 @@
 <?php
+// Configurar exibição de erros (somente para debug, remova em produção)
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-session_start(); // Sempre inicie a sessão no topo
+// Sempre inicie a sessão no topo
+session_start();
 
-include 'db_connection.php'; // Inclua a conexão PDO
+// Inclua a conexão PDO
+include 'db_connection.php';
 
-// Check logout
+// Verificar se o logout foi solicitado
 if (isset($_GET['logout'])) {
     session_unset();
     session_destroy();
@@ -18,13 +21,13 @@ if (isset($_GET['logout'])) {
 // Inicialize a mensagem de erro
 $error_msg = "";
 
-// Processar o formulário
+// Verifique se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtenha os dados do formulário
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Prepara a consulta
+    // Prepara a consulta SQL
     $sql = "SELECT * FROM employee WHERE email = :email";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':email', $email);
@@ -40,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['user_id'] = $user['EmployeeID'];
                 $_SESSION['email'] = $user['Email'];
 
-                // Redireciona ao dashboard
+                // Redireciona para o dashboard
                 header("Location: dashboard_company.php");
                 exit();
             } else {
@@ -53,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error_msg = "Erro ao acessar o banco de dados: " . $e->getMessage();
     }
 
-    // Redireciona de volta com a mensagem de erro
+    // Redireciona de volta para o login com a mensagem de erro
     $_SESSION['error_msg'] = $error_msg;
     header("Location: index.php");
     exit();
