@@ -2,7 +2,7 @@
 // Configurações de conexão com o banco de dados
 $servername = "companythrivepeak.database.windows.net";
 $username = "FilipaBrito";
-$password = "Filipa1602#";
+$password = "{your_password_here}";
 $dbname = "company";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
