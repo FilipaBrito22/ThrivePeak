@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy ASP.Net Core app to Azure Web App - TrivePeak
+name: Build and deploy PHP app to Azure Web App - TrivePeak
 
 on:
   push:
@@ -16,22 +16,29 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up .NET Core
-        uses: actions/setup-dotnet@v4
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
         with:
-          dotnet-version: '8.x'
+          php-version: '8.3'
 
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
+      - name: Check if composer.json exists
+        id: check_files
+        uses: andstor/file-existence-action@v1
+        with:
+          files: 'composer.json'
 
-      - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+      - name: Run composer install if composer.json exists
+        if: steps.check_files.outputs.files_exists == 'true'
+        run: composer validate --no-check-publish && composer install --prefer-dist --no-progress
+
+      - name: Zip artifact for deployment
+        run: zip release.zip ./* -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          name: php-app
+          path: release.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -46,18 +53,21 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: .net-app
+          name: php-app
+
+      - name: Unzip artifact for deployment
+        run: unzip release.zip
       
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_4B6BB70C81324457B0991D01DF4205B3 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_7605A0CE03E941D9959066AC34736CA8 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_F97ADEABCF52415C8ECE699C0BEF10D6 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_1030B9E6294E46B3BB5C1A7FF672FBF1 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_2E590050450A4FE49C200ED1AAD34AEF }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_2EC1C634915C44DD82B95783B9BDD878 }}
 
-      - name: Deploy to Azure Web App
-        id: deploy-to-webapp
+      - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
+        id: deploy-to-webapp
         with:
           app-name: 'TrivePeak'
           slot-name: 'Production'
